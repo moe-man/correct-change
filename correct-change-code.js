@@ -33,7 +33,7 @@ if (amount >= itemPrice) {
         numOnes = Math.floor(difference/oneDollar)
         difference = difference % oneDollar
     }
-    if (difference > twentyfiveCent) {
+    if (difference >= twentyfiveCent) {
         numQuarters = Math.floor(difference/twentyfiveCent)
         difference = difference % twentyfiveCent
     }
@@ -45,11 +45,9 @@ if (amount >= itemPrice) {
         numNickels = Math.floor(difference/fiveCent)
         difference = difference % fiveCent
     }
-    if (difference >= oneCent) {
-        numPennies = Math.floor(difference/oneCent)
-        difference = difference % oneCent
-    }
     
+    numPennies = difference
+
     return `Change includes ${numTwenties} twenties, ${numFives} fives, ${numOnes} ones, 
     ${numQuarters} quarters, ${numDimes} dimes, ${numNickels} nickels, and ${numPennies} pennies`
     }
@@ -58,7 +56,7 @@ if (amount >= itemPrice) {
     
 }
 
-var output = correctChange(20.48, 13.87)
+var output = correctChange(20.38, 13.60)
 console.log(output)
 
 
